@@ -1,0 +1,18 @@
+#
+# These are the default values for the app
+# 
+deploymentName: website
+
+replicaCount: 2
+
+imageName: webdev1667/watchdeals
+
+containerName: webapp
+#
+# service
+# 
+expose:
+  serviceType: NodePort
+  serviceName: http-service
+  port: 80
+  targetPort: 80
