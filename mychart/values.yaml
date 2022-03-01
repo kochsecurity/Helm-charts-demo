@@ -3,7 +3,7 @@
 # 
 deploymentName: website
 
-replicaCount: 2
+replicaCount: 3
 
 imageName: webdev1667/watchdeals
 
@@ -12,7 +12,7 @@ containerName: webapp
 # service
 # 
 expose:
-  serviceType: NodePort
+  serviceType: ClusterIP
   serviceName: http-service
   port: 80
   targetPort: 80
