@@ -3,7 +3,7 @@
 # 
 deploymentName: website
 
-replicaCount: 3
+replicaCount: 2
 
 imageName: webdev1667/watchdeals
 

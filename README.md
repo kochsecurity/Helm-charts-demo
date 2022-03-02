@@ -15,9 +15,15 @@ Helpful helm commands:
 
 #### Helm diff
 
-Install Helm diff plugin
+First, Install Helm diff plugin
 
 ```helm plugin install https://github.com/databus23/helm-diff```
 
 
 ```helm diff revision myapp 1 3``` Where ```1``` and ```3``` are the revision number you want to enter to see differences in this scenario
+
+```helm diff upgrade <release> <releaseChartversion>```
+
+In this xxample, ```helm diff upgrade artifactory https://charts.jfrog.io/artifactory-107.33.12.tgz``` helm will output the changes that will occure by comparing the current release currently install to the upgrade we are making and seeing what has changed.
+
+
