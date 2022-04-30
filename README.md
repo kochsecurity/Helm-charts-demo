@@ -59,6 +59,85 @@ generated: "2022-04-29T23:15:40.259637-04:00"
 
 Since we now have a package file (.tgz) and an index.html file, we can now publish this publickly for others to consume.
 
-we will need a server that can serve static files like github pages and s3.
+we will need a server that can serve static files like github pages and s3, to serve the Charts dorectory that includes the ```index.yaml``` and ```../charts/northstar-1.0.0.tgz```
+
+In github pages, set the branch as root and save it. This makes your chart public available for downloads.
+
+Our endpoint, 
+```Your site is ready to be published at https://kochsecurity.github.io/Helm-charts-demo/```
 
 
+## Add our repo
+
+We can now add our repo to local, using command:
+
+```Usage:  helm repo add [NAME] [URL] [flags]```
+
+```Helm repo add northstar https://kochsecurity.github.io/Helm-charts-demo/charts```  # we have to specify where index.yaml is located, which is in the charts directory.
+
+Confirm the addition with ```helm repo list```.
+
+## Install your app
+
+
+```helm install north northstar/northstar```
+
+NAME: north
+LAST DEPLOYED: Fri Apr 29 23:48:16 2022
+NAMESPACE: northstar
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+
+We have now install the app with the publicly hosted repo found in our public github pages site.
+
+
+## Check our installation
+
+```
+helm ls
+NAME    NAMESPACE       REVISION        UPDATED                                 STATUS          CHART           APP VERSION
+north   northstar       1               2022-04-29 23:48:16.405338 -0400 EDT    deployed        northstar-1.0.0 0.0.1      
+
+```
+
+```k get po``` should display our running pods
+
+## Delete and update our chart with custom values
+
+```helm delete north```
+
+release "north" uninstalled
+
+re-install and update the replica count
+
+```helm install north northstar/northstar --set replicaCount=1```
+
+
+## Show all our values
+
+```helm get values north -a```
+
+COMPUTED VALUES:
+containerName: webapp
+deploymentName: website
+expose:
+  port: 80
+  serviceName: http-service
+  serviceType: ClusterIP
+  targetPort: 80
+imageName: webdev1667/watchdeals
+replicaCount: 1
+
+
+## Upgrade our deployment
+
+```helm upgrade --set imageName=webdev1667/northstar:v1 north northstar/northstar```
+
+Release "north" has been upgraded. Happy Helming!
+NAME: north
+LAST DEPLOYED: Sat Apr 30 00:15:16 2022
+NAMESPACE: northstar
+STATUS: deployed
+REVISION: 2
+TEST SUITE: None
