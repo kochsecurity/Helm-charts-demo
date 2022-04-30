@@ -144,3 +144,13 @@ STATUS: deployed
 REVISION: 2
 TEST SUITE: None
 ```
+
+
+## N/B
+
+We just need charts directory which contains the index.yaml and packaged file (.tgz) in the public github pages for this to work.
+
+Also, we can package multiple helm repos by updating the index.yaml file by using the helm index utility command.
+
+
+
