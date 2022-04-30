@@ -118,6 +118,7 @@ re-install and update the replica count
 
 ```helm get values north -a```
 
+```
 COMPUTED VALUES:
 containerName: webapp
 deploymentName: website
@@ -128,12 +129,13 @@ expose:
   targetPort: 80
 imageName: webdev1667/watchdeals
 replicaCount: 1
-
+```
 
 ## Upgrade our deployment
 
 ```helm upgrade --set imageName=webdev1667/northstar:v1 north northstar/northstar```
 
+```
 Release "north" has been upgraded. Happy Helming!
 NAME: north
 LAST DEPLOYED: Sat Apr 30 00:15:16 2022
@@ -141,3 +143,4 @@ NAMESPACE: northstar
 STATUS: deployed
 REVISION: 2
 TEST SUITE: None
+```
