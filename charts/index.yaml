@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  northstar:
+  - apiVersion: v2
+    appVersion: 0.0.1
+    created: "2022-04-29T23:15:40.262261-04:00"
+    description: A Helm chart to deploy northstar version 1.0.0
+    digest: 2e66b732313493bd7a0539a18c0d8c35c5ed25bd2e7611ffa72557629ed0f42a
+    name: northstar
+    type: application
+    urls:
+    - northstar-1.0.0.tgz
+    version: 1.0.0
+generated: "2022-04-29T23:15:40.259637-04:00"
